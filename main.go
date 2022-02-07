@@ -1,6 +1,16 @@
 package main
 
+import (
+	"fmt"
+
+	"github.com/google/uuid"
+	"neko.bar/nyactivity-server/models"
+	"neko.bar/nyactivity-server/serverstate"
+)
+
 func main() {
-	//http.HandleFunc("/", indexPage)
-	//http.ListenAndServe(":1337", nil)
+	serverState := serverstate.New()
+	user := models.NewUser(uuid.NewString())
+	serverState.AddUser(user)
+	fmt.Println(serverState)
 }
